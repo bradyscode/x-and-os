@@ -70,5 +70,5 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 - Thanks to the open-source community for their invaluable contributions and resources.
 - Special thanks to the creators of the background image used in this project.
 
-## Demo
+## Demo (Yes it is missing the 11th man)
 https://github.com/user-attachments/assets/05dd9186-9d60-4997-9ec1-e93a281af582

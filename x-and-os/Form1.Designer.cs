@@ -31,6 +31,7 @@
             pictureBox1 = new PictureBox();
             clrButton = new Button();
             saveButton = new Button();
+            threeFourbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -66,11 +67,22 @@
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += btnSave_Click;
             // 
+            // threeFourbtn
+            // 
+            threeFourbtn.Location = new Point(28, 729);
+            threeFourbtn.Name = "threeFourbtn";
+            threeFourbtn.Size = new Size(189, 52);
+            threeFourbtn.TabIndex = 3;
+            threeFourbtn.Text = "Add 3-4 D";
+            threeFourbtn.UseVisualStyleBackColor = true;
+            threeFourbtn.Click += threeFourdbtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1715, 817);
+            Controls.Add(threeFourbtn);
             Controls.Add(saveButton);
             Controls.Add(clrButton);
             Controls.Add(pictureBox1);
@@ -86,5 +98,6 @@
         private PictureBox pictureBox1;
         private Button clrButton;
         private Button saveButton;
+        private Button threeFourbtn;
     }
 }

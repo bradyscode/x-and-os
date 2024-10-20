@@ -30,13 +30,13 @@ namespace x_and_os
             {
                 // Define positions for the linemen and center
                 int centerX = bitmap.Width / 2;
-                int linemanY = bitmap.Height/2 +50; // Adjust as needed for vertical placement
+                int linemanY = bitmap.Height / 2 + 50; // Adjust as needed for vertical placement
                 int offset = 50; // Space between each player
 
                 // Draw linemen as "O"
                 for (int i = -2; i <= 2; i++) // 5 linemen
                 {
-                    if(i!=0)
+                    if (i != 0)
                         DrawO(new Point(centerX + i * offset, linemanY));
                 }
 
@@ -184,6 +184,31 @@ namespace x_and_os
         {
             bitmap.Dispose();
             base.OnFormClosing(e);
+        }
+
+        private void threeFourdbtn_Click(object sender, EventArgs e)
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Define positions for the defense
+                int centerX = bitmap.Width / 2;
+                int linemanY = bitmap.Height / 2; // Adjust as needed for vertical placement
+                int offset = 150; // Space between each player
+
+                // Draw defensive linemen as "O"
+                for (int i = -1; i <= 1; i++) // 3 defensive linemen
+                {
+                    DrawO(new Point(centerX + i * offset, linemanY));
+                }
+                offset = 135;
+                // Draw linebackers as "O" slightly above the linemen
+                for (int i = -2; i <= 1; i++) // 4 linebackers
+                {
+                    DrawO(new Point((centerX + i * offset)+65, linemanY - 70)); // Adjust vertical position
+                }
+            }
+            pictureBox1.Invalidate();
+
         }
     }
 }

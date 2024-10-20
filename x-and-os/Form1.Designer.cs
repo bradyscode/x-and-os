@@ -87,7 +87,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1620, 23);
+            label1.Location = new Point(1490, 20);
             label1.Name = "label1";
             label1.Size = new Size(92, 25);
             label1.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // penColorBlackbtn
             // 
-            penColorBlackbtn.Location = new Point(1551, 60);
+            penColorBlackbtn.Location = new Point(1421, 57);
             penColorBlackbtn.Name = "penColorBlackbtn";
             penColorBlackbtn.Size = new Size(112, 34);
             penColorBlackbtn.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // penColorBluebtn
             // 
-            penColorBluebtn.Location = new Point(1669, 60);
+            penColorBluebtn.Location = new Point(1539, 57);
             penColorBluebtn.Name = "penColorBluebtn";
             penColorBluebtn.Size = new Size(112, 34);
             penColorBluebtn.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             // penColorGreenbtn
             // 
-            penColorGreenbtn.Location = new Point(1551, 100);
+            penColorGreenbtn.Location = new Point(1421, 97);
             penColorGreenbtn.Name = "penColorGreenbtn";
             penColorGreenbtn.Size = new Size(112, 34);
             penColorGreenbtn.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             // penColorPurplebtn
             // 
-            penColorPurplebtn.Location = new Point(1669, 100);
+            penColorPurplebtn.Location = new Point(1539, 97);
             penColorPurplebtn.Name = "penColorPurplebtn";
             penColorPurplebtn.Size = new Size(112, 34);
             penColorPurplebtn.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             // penColorOrangebtn
             // 
-            penColorOrangebtn.Location = new Point(1551, 140);
+            penColorOrangebtn.Location = new Point(1421, 137);
             penColorOrangebtn.Name = "penColorOrangebtn";
             penColorOrangebtn.Size = new Size(112, 34);
             penColorOrangebtn.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             // penColorRedbtn
             // 
-            penColorRedbtn.Location = new Point(1669, 140);
+            penColorRedbtn.Location = new Point(1539, 137);
             penColorRedbtn.Name = "penColorRedbtn";
             penColorRedbtn.Size = new Size(112, 34);
             penColorRedbtn.TabIndex = 10;
@@ -157,7 +157,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1796, 964);
+            ClientSize = new Size(1674, 964);
             Controls.Add(penColorRedbtn);
             Controls.Add(penColorOrangebtn);
             Controls.Add(penColorPurplebtn);
@@ -169,8 +169,11 @@
             Controls.Add(saveButton);
             Controls.Add(clrButton);
             Controls.Add(pictureBox1);
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            ShowIcon = false;
+            SizeGripStyle = SizeGripStyle.Hide;
+            Text = "Xs and Os";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

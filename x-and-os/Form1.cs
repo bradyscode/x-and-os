@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace x_and_os
@@ -22,9 +23,27 @@ namespace x_and_os
                 g.Clear(Color.White); // Start with a white background
             }
             pictureBox1.Image = bitmap;
-
         }
+        private void DrawInitialFormation()
+        {
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                // Define positions for the linemen and center
+                int centerX = bitmap.Width / 2;
+                int linemanY = bitmap.Height/2 +50; // Adjust as needed for vertical placement
+                int offset = 50; // Space between each player
 
+                // Draw linemen as "O"
+                for (int i = -2; i <= 2; i++) // 5 linemen
+                {
+                    if(i!=0)
+                        DrawO(new Point(centerX + i * offset, linemanY));
+                }
+
+                // Draw center as "X"
+                DrawX(new Point(centerX, linemanY - 10)); // Slightly above the linemen
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             // Load the image from a file or URL
@@ -38,13 +57,29 @@ namespace x_and_os
                     bitmap = new Bitmap(loadedImage.Width, loadedImage.Height);
                     using (Graphics g = Graphics.FromImage(bitmap))
                     {
-                        g.DrawImage(loadedImage, new Rectangle(0, 0, loadedImage.Width, loadedImage.Height));
+                        // Set the opacity level (0.0 fully transparent, 1.0 fully opaque)
+                        float opacity = 0.5f; // Adjust opacity level here
+                        ColorMatrix colorMatrix = new ColorMatrix();
+                        colorMatrix.Matrix33 = opacity; // Set alpha to the specified opacity
+
+                        using (ImageAttributes attributes = new ImageAttributes())
+                        {
+                            attributes.SetColorMatrix(colorMatrix);
+                            // Draw the image with the specified opacity
+                            g.DrawImage(loadedImage, new Rectangle(0, 0, loadedImage.Width, loadedImage.Height),
+                                         0, 0, loadedImage.Width, loadedImage.Height, GraphicsUnit.Pixel, attributes);
+                        }
                     }
                 }
             }
+
+            // Draw the initial offensive formation
+            DrawInitialFormation();
+
             pictureBox1.Image = bitmap;
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize; // Adjust size mode as needed
         }
+
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -108,8 +143,8 @@ namespace x_and_os
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 int size = 20; // Size of the "X"
-                g.DrawLine(Pens.Red, location.X - size, location.Y - size, location.X + size, location.Y + size);
-                g.DrawLine(Pens.Red, location.X + size, location.Y - size, location.X - size, location.Y + size);
+                g.DrawLine(Pens.Black, location.X - size, location.Y - size, location.X + size, location.Y + size);
+                g.DrawLine(Pens.Black, location.X + size, location.Y - size, location.X - size, location.Y + size);
             }
         }
 
@@ -118,7 +153,7 @@ namespace x_and_os
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 int size = 20; // Radius of the "O"
-                g.DrawEllipse(Pens.Blue, location.X - size, location.Y - size, size * 2, size * 2);
+                g.DrawEllipse(Pens.Black, location.X - size, location.Y - size, size * 2, size * 2);
             }
         }
 

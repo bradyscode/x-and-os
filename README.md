@@ -1,7 +1,7 @@
 # x-and-os
 
 ## Problem Statement
-This last year I volunteered as an assistant coach for a local high school team in Michigan that needed a solution to brainstorm plays and gameplans visually without much effort.
+This past year, I volunteered as an assistant coach for a local high school team.  We needed an application, at a low cost, to build our game plans and brainstorm plays visually with minimal effort.
 
 ## Solution
 I knew as a software engineer I could create a tool for this team to gameplan, brainstorm, and quickly add new plays to the playbook and be as creative as they could want to be.

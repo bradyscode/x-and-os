@@ -11,6 +11,7 @@ namespace x_and_os
         private bool drawing = false;
         private Point lastPoint;
         private bool rightButtonDown = false; // Flag to track right button state
+        private Pen penColor;
 
         public Form1()
         {
@@ -46,6 +47,7 @@ namespace x_and_os
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            penColor = Pens.Black;
             // Load the image from a file or URL
             using (var webClient = new System.Net.WebClient())
             {
@@ -77,7 +79,7 @@ namespace x_and_os
             DrawInitialFormation();
 
             pictureBox1.Image = bitmap;
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize; // Adjust size mode as needed
+            pictureBox1.SizeMode = PictureBoxSizeMode.Normal; // Adjust size mode as needed
         }
 
 
@@ -103,7 +105,7 @@ namespace x_and_os
             {
                 using (Graphics g = Graphics.FromImage(bitmap))
                 {
-                    g.DrawLine(Pens.Red, lastPoint, e.Location); // Draw "X" line while holding left mouse button
+                    g.DrawLine(penColor, lastPoint, e.Location); // Draw "X" line while holding left mouse button
                 }
                 lastPoint = e.Location;
                 pictureBox1.Invalidate(); // Refresh the PictureBox to show the new line
@@ -143,8 +145,8 @@ namespace x_and_os
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 int size = 20; // Size of the "X"
-                g.DrawLine(Pens.Black, location.X - size, location.Y - size, location.X + size, location.Y + size);
-                g.DrawLine(Pens.Black, location.X + size, location.Y - size, location.X - size, location.Y + size);
+                g.DrawLine(penColor, location.X - size, location.Y - size, location.X + size, location.Y + size);
+                g.DrawLine(penColor, location.X + size, location.Y - size, location.X - size, location.Y + size);
             }
         }
 
@@ -153,7 +155,7 @@ namespace x_and_os
             using (Graphics g = Graphics.FromImage(bitmap))
             {
                 int size = 20; // Radius of the "O"
-                g.DrawEllipse(Pens.Black, location.X - size, location.Y - size, size * 2, size * 2);
+                g.DrawEllipse(penColor, location.X - size, location.Y - size, size * 2, size * 2);
             }
         }
 
@@ -204,11 +206,41 @@ namespace x_and_os
                 // Draw linebackers as "O" slightly above the linemen
                 for (int i = -2; i <= 1; i++) // 4 linebackers
                 {
-                    DrawO(new Point((centerX + i * offset)+65, linemanY - 70)); // Adjust vertical position
+                    DrawO(new Point((centerX + i * offset) + 65, linemanY - 70)); // Adjust vertical position
                 }
             }
             pictureBox1.Invalidate();
 
+        }
+
+        private void penColorBlackbtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Black;
+        }
+
+        private void penColorBluebtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Blue;
+        }
+
+        private void penColorGreenbtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Green;
+        }
+
+        private void penColorPurplebtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Purple;
+        }
+
+        private void penColorYellowbtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Orange;
+        }
+
+        private void penColorRedbtn_Click(object sender, EventArgs e)
+        {
+            penColor = Pens.Red;
         }
     }
 }

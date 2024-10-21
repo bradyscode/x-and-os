@@ -17,8 +17,12 @@ The X and O Drawing Application is a simple WinForms application that allows use
 - **Draw Lines**: Click and hold the left mouse button to paint lines in red.
 - **Place Markers**:
     - Right-click to place an "O" marker.
+- **Add Defense Buttons**:
+    - A button to automatically add a 3-4 defensive set
+          - More defensive sets to come
 - **Initial Formation**: Automatically displays a basic offensive formation with four "O" markers representing linemen and one "X" for the center.
 - **Save and Clear**: Options to save your drawings to a file or clear the canvas.
+- **Color Changing**: Options to change the pen color of your drawing
 
 ## Technologies Used
 
